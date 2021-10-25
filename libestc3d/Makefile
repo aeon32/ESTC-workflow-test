@@ -12,8 +12,11 @@ OBJS := $(foreach obj,$(SRCS), obj/$(obj).o )
 
 $(BINARY_NAME): $(BINARY_PATH)
 
-$(BINARY_PATH): $(OBJS)
-	$(AR) rcs -o $@ $<
+obj:
+	mkdir -p obj
+
+$(BINARY_PATH): obj $(OBJS)
+	$(AR) rcs -o $@ $(OBJS)
 
 clean:
 	@rm -f $(OBJS) $(BINARY_PATH)

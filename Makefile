@@ -1,5 +1,4 @@
-BUILD_ROOT := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
-
+include paths.mk
 
 LIBESTC3D_PATH = $(BUILD_ROOT)/libestc3d/
 TESTAPP_PATH = $(BUILD_ROOT)/testapp/
@@ -7,8 +6,10 @@ TESTAPP_PATH = $(BUILD_ROOT)/testapp/
 
 all: libestc3dlib
 
+bin:
+	mkdir -p $(BIN_DIR)
 
-libestc3dlib:
+libestc3dlib: bin
 	make -C $(LIBESTC3D_PATH)
 
 
