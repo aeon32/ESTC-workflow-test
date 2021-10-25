@@ -74,7 +74,7 @@ int estc_vector3_snprint(char * buff, size_t n, ESTCVector3 * vector3)
     
 	for (int i = 0; i< VECTOR_SIZE; i++)
 	{
-		const char * format = (i == VECTOR_SIZE - 1) ? "%.6e" : "%.6e, ";
+		const char * format = (i == VECTOR_SIZE - 1) ? "%.3e" : "%.3e, ";
 		int need_chars = snprintf(pbuff, buff_end - pbuff, format, vector3->coords[i]);
 		pbuff += need_chars;
 		total_width += need_chars;
@@ -143,7 +143,7 @@ void estc_vector3_sub(ESTCVector3 * arg1, ESTCVector3 * arg2, ESTCVector3 * out)
 **/
 ESTCFloat estc_vector3_dot(ESTCVector3 * arg1, ESTCVector3 * arg2)
 {
-	ESTCFloat result;
+	ESTCFloat result = 0;
 
 	for (int i =0; i < VECTOR_SIZE; i++)
 	{

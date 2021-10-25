@@ -24,7 +24,7 @@ LDFLAGS += $(addprefix -L, $(LIB_DIRS))
 
 
 # C files build rules
-%.o: %.c
+%.c.o: %.c
 	@echo " CC" $<
 	$(CC) $(CFLAGS)  -o $@ -c $<
 
