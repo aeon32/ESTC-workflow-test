@@ -7,10 +7,16 @@ BINARY_PATH = $(BIN_DIR)/$(BINARY_NAME).a
 SRCS := estc3d.c
 OBJS := $(foreach obj,$(SRCS), obj/$(obj).o ) 
 
+.depend: $(SRCS)
+	gcc -MM $^ -o $@
+
+include .depend
 
 .PHONY: $(BINARY_NAME)
 
 $(BINARY_NAME): $(BINARY_PATH)
+
+
 
 obj:
 	mkdir -p obj
